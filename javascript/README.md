@@ -1,42 +1,45 @@
-# 赛维 JavaScript 编码指南
+# JavaScript 编码指南
 
-## 参考
-[GitHub - airbnb/javascript: JavaScript Style Guide](https://github.com/airbnb/javascript)
 
-## 大纲
+## 说明
+1. 文档参考 [GitHub - airbnb/javascript: JavaScript Style Guide](https://github.com/airbnb/javascript)；
+2. 文档针对 ES6 标准编写，ES5 codebase 可忽略 ES6 特性相关内容。
+
+## 工具
+  1. [eslint](https://www.npmjs.com/package/eslint)
+  2. [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+  3. 使用方式：编辑器静态检查+编辑器代码格式化+ESLint 命令行工具手动检查+ESLint构建工具检查
+
+## 内容大纲
 
   1. [Types](#types)
-  1. [References](#references)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
-  1. [Classes & Constructors](#classes--constructors)
-  1. [Modules](#modules)
-  1. [Iterators and Generators](#iterators-and-generators)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
-  1. [Control Statements](#control-statements)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Events](#events)
-  1. [jQuery](#jquery)
-  1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
-  1. [ECMAScript 6+ (ES 2015+) Styles](#ecmascript-6-es-2015-styles)
-  1. [Testing](#testing)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
+  2. [References](#references)
+  3. [Objects](#objects)
+  4. [Arrays](#arrays)
+  5. [Destructuring](#destructuring)
+  6. [Strings](#strings)
+  7. [Functions](#functions)
+  8. [Arrow Functions](#arrow-functions)
+  9. [Classes & Constructors](#classes--constructors)
+  10. [Modules](#modules)
+  11. [Iterators and Generators](#iterators-and-generators)
+  12. [Properties](#properties)
+  13. [Variables](#variables)
+  14. [Hoisting](#hoisting)
+  15. [Comparison Operators & Equality](#comparison-operators--equality)
+  16. [Blocks](#blocks)
+  17. [Control Statements](#control-statements)
+  18. [Comments](#comments)
+  19. [Whitespace](#whitespace)
+  20. [Commas](#commas)
+  21. [Semicolons](#semicolons)
+  22. [Type Casting & Coercion](#type-casting--coercion)
+  23. [Naming Conventions](#naming-conventions)
+  24. [Accessors](#accessors)
+  25. [Events](#events)
+  26. [jQuery](#jquery)
 
-## 类型 Types
+## Types
 
   <a name="types--primitives"></a><a name="1.1"></a>
   - [1.1](#types--primitives) **Primitives**: When you access a primitive type you work directly on its value.
@@ -2009,7 +2012,7 @@
 
 
 
-## Comments
+## 注释 Comments
 
   <a name="comments--multiline"></a><a name="17.1"></a>
   - [18.1](#comments--multiline) Use `/** ... */` for multi-line comments.
@@ -3083,36 +3086,4 @@
     $sidebar.find('ul').hide();
     ```
 
-
-## Testing
-
-  <a name="testing--yup"></a><a name="28.1"></a>
-  - [29.1](#testing--yup) **Yup.**
-
-    ```javascript
-    function foo() {
-      return true;
-    }
-    ```
-
-  <a name="testing--for-real"></a><a name="28.2"></a>
-  - [29.2](#testing--for-real) **No, but seriously**:
-    - Whichever testing framework you use, you should be writing tests!
-    - Strive to write many small pure functions, and minimize where mutations occur.
-    - Be cautious about stubs and mocks - they can make your tests more brittle.
-    - We primarily use [`mocha`](https://www.npmjs.com/package/mocha) at Airbnb. [`tape`](https://www.npmjs.com/package/tape) is also used occasionally for small, separate modules.
-    - 100% test coverage is a good goal to strive for, even if it’s not always practical to reach it.
-    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
-
-
-
-## Performance
-
-
-## 使用说明
-
-  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
-
-
-## 修订
 
