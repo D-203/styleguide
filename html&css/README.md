@@ -1,6 +1,6 @@
 # # HTML&CSS 编码规范
 
-## 说明
+## 1 说明
 1. 文档参考 [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#Background)整理。
 
 ## 2 通用规则
@@ -13,21 +13,21 @@
 
 除非相应的文件不能通过 HTTPS 访问，否则图片和其它媒体文件、样式表应始终使用 HTTPS 协议。
 
-'' <!-- 不推荐: uses the HTTP protocol -->
-''     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-'' 
-'' <!-- Recommended -->
-'' <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-'' 
-'' /* Not recommended: omits the protocol */
-'' @import '//fonts.googleapis.com/css?family=Open+Sans';
-'' 
-'' /* Not recommended: uses the HTTP protocol */
-'' @import 'http://fonts.googleapis.com/css?family=Open+Sans';
-'' 
-'' /* Recommended */
-'' @import 'https://fonts.googleapis.com/css?family=Open+Sans';
-'' 
+``` <!-- 不推荐: uses the HTTP protocol -->
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ 
+ <!-- Recommended -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ 
+ /* Not recommended: omits the protocol */
+ @import '//fonts.googleapis.com/css?family=Open+Sans';
+ 
+ /* Not recommended: uses the HTTP protocol */
+ @import 'http://fonts.googleapis.com/css?family=Open+Sans';
+ 
+ /* Recommended */
+ @import 'https://fonts.googleapis.com/css?family=Open+Sans';
+``` 
 
 	
 ### 2.2 通用格式规则
