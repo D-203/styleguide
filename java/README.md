@@ -2,14 +2,14 @@
 
 ## 内容大纲
 1. [命名规范](#naming-guide)
-    [1.1 项目目录命名规范](#project-naming)  
-    [1.2 包命名规范](#package-naming)
-    [1.3 类命名规范](#class-naming)
-    [1.4 方法命名规范](#method-naming)
-    [1.5 常量命名规范](#constants-naming)
-    [1.6 变量命名规范](#variable-naming)
+    1.1 [项目目录命名规范](#project-naming)
+    1.2 [包命名规范](#package-naming)
+    1.3 [类命名规范](#class-naming)
+    1.4 [方法命名规范](#method-naming)
+    1.5 [常量命名规范](#constants-naming)
+    1.6 [变量命名规范](#variable-naming)
 2. [源代码文件结构](#source-structure)
-    [2.1 源代码文件命名规范](#source-naming)
+    2.1 [源代码文件命名规范](#source-naming)
 3. [代码格式规范](#format-guide)
 4. [注释规范](#comments-guide)
 5. [注解规范](#annotation-guide)
@@ -30,7 +30,7 @@
 * 多个单词间不能使用驼峰或下划线连接
 * org.springFramework 或 org.spring_framework 是不符合规范的
 
-<a name="class-naming></a>
+<a name="class-naming"></a>
 [1.3] 类命名规范
 * 驼峰式命名法 UpperCamelCase
 * 使用表明类功能的名词或短语命名
