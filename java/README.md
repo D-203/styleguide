@@ -2,12 +2,12 @@
 
 ## 内容大纲
 1. [命名规范](#naming-guide)
-    1.1 [项目目录命名规范](#project-naming)
-    1.2 [包命名规范](#package-naming)
-    1.3 [类命名规范](#class-naming)
-    1.4 [方法命名规范](#method-naming)
-    1.5 [常量命名规范](#constants-naming)
-    1.6 [变量命名规范](#variable-naming)
+    + 1.1 [项目目录命名规范](#project-naming)
+    + 1.2 [包命名规范](#package-naming)
+    + 1.3 [类命名规范](#class-naming)
+    + 1.4 [方法命名规范](#method-naming)
+    + 1.5 [常量命名规范](#constants-naming)
+    + 1.6 [变量命名规范](#variable-naming)
 2. [源代码文件结构](#source-structure)
     2.1 [源代码文件命名规范](#source-naming)
 3. [代码格式规范](#format-guide)
