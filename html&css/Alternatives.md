@@ -1,5 +1,12 @@
 # HTML 编码规范
 
+## 说明
+1. 文档参考 [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#Background)整理。
+
+## 内容大纲
+
+## General 
+
 ### Doctype
 
 Use the `html5` doctype at all times at the top of your html document:
