@@ -37,20 +37,49 @@
 [1.2] **包命名规范**
 * 全小写英文
 * 多个单词间不能使用驼峰或下划线连接
-正确：org.springframework.context
-错误：org.springFramework.context
-错误：org.spring_framework.context
+```java
+// 正确
+org.springframework.context
+// 错误
+org.springFramework.context
+org.spring_framework.context
+```
 
 <a name="class-naming"></a>
 [1.3] **类命名规范**
 * 驼峰式命名法 UpperCamelCase
-* 使用表明类功能的名词或短语命名
-* 测试类以待测试类名加Test构成.如：UserDAOTest
-* 抽象类以Abstract开头.如：Abstract
-* 类的命名能够显示的归类其所处架构层级，如: LoginFormBean, LoginController, LoginService, UserDAO
-* 如果应用类设计模式，以设计模式作为后缀：RouterAdapter，LoginProxy，TransctionFactory
+* 使用表明类功能的名词或动词短语命名
+* 测试类以待测试类名加Test构成
+```java
+UserDAOTest
+```
+* 抽象类以Abstract开头
+```java
+AbstractXmlParser
+```
+* 类的命名能够显示的归类其所处架构层级
+```java
+LoginFormBean
+LoginController
+LoginService
+UserDAO
+```
+* 如果应用类设计模式，以设计模式作为后缀
+```java
+RouterAdapter
+LoginProxy
+TransctionFactory
+```
 * 领域模型相关命名规范(待讨论),如：DO，DTO，BO，VO
-* 枚举类的命名加后缀Enum，枚举成员用下划线连接的全大写单词组合
+* 枚举类的命名加后缀Enum
+```java
+OrderStatusEnum
+```
+* 枚举成员用下划线连接的全大写单词组合
+```java
+STATUS_NEW
+STATUS_PAID
+```
 
 <a name="method-naming"></a>
 [1.4] **方法命名规范**
@@ -74,12 +103,21 @@
 
 <a name="variable-naming"></a>
 [1.6] **变量命名规范**
-* 不能使用_或$
-错误：_name, $object, name_, object$
+* 不能以下划线和美元符号开始或结束
+```java
+// 错误：
+private String _userName;
+private String $userName;
+private String userName_;
+private String userName$
+```
 * 小写字母开头的英文单词的组合lowerCamelCase
 * 使用驼峰式命名法
 * 使用名词或名词性词组
-* 命名准确，望文知义，避免不必要的缩写，如：kName，sName
+* 命名准确，望文知义，避免不必要的缩写
+```java
+private String kName;
+```
 
 <a name="source-structure"></a>
 ## 源代码文件结构
@@ -187,7 +225,7 @@ private String cities[] = new String[] {
                                         };
 ```
 * 数组通过枚举法初始化时在同一行，过长时才进行换行
-* 多行变量声明之间不尽兴纵向对齐，错误如下：
+* 多行变量声明之间不尽兴纵向对齐
 ```java
 // 正确
 private Integer userAge;
