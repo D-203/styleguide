@@ -37,7 +37,9 @@
 [1.2] **包命名规范**
 * 全小写英文
 * 多个单词间不能使用驼峰或下划线连接
-* org.springFramework 或 org.spring_framework 是不符合规范的
+* 正确：org.springframework.context
+* 错误：org.springFramework.context
+* 错误：org.spring_framework.context
 
 <a name="class-naming"></a>
 [1.3] **类命名规范**
