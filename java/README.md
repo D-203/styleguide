@@ -279,7 +279,16 @@ private int     size;
 * 注解跟着注释之后
 * 每个注解单独占一行，只有一个注解时也是
 ```java
+// 正确
+@Override
+@Transactional
+public void method() {
+}
 
+// 错误
+@Override @Transactional 
+public void method() {
+}
 ```
 
 
