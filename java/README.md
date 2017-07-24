@@ -178,11 +178,23 @@ private double square = 3.14D;
 ```
 * 声明数组类型变量时[]紧跟在类型之后，在变量名之前
 ```java
+// 正确
 private String[] cities = new String[] {"BJ", "SH"};
+// 错误
+private String cities[] = new String[] {
+                                        "BJ", 
+                                        "SH"
+                                        };
 ```
 * 数组通过枚举法初始化时在同一行，过长时才进行换行
 * 多行变量声明之间不尽兴纵向对齐，错误如下：
 ```java
+// 正确
+private Integer userAge;
+private Double userWeight;
+private int size;
+
+// 错误
 private Integer userAge;
 private Double  userWeight;
 private int     size;
@@ -208,6 +220,9 @@ private int     size;
 ## 注解规范
 * 注解跟着注释之后
 * 每个注解单独占一行，只有一个注解时也是
+```java
+
+```
 
 
 
