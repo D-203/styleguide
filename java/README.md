@@ -51,14 +51,17 @@ org.spring_framework.context
 * 使用表明类功能的名词或动词短语命名
 * 测试类以待测试类名加Test构成
 ```java
+// 正确
 UserDAOTest
 ```
 * 抽象类以Abstract开头
 ```java
+// 正确
 AbstractXmlParser
 ```
 * 类的命名能够显示的归类其所处架构层级
 ```java
+// 正确
 LoginFormBean
 LoginController
 LoginService
@@ -66,6 +69,7 @@ UserDAO
 ```
 * 如果应用类设计模式，以设计模式作为后缀
 ```java
+// 正确
 RouterAdapter
 LoginProxy
 TransctionFactory
@@ -73,10 +77,12 @@ TransctionFactory
 * 领域模型相关命名规范(待讨论),如：DO，DTO，BO，VO
 * 枚举类的命名加后缀Enum
 ```java
+// 正确
 OrderStatusEnum
 ```
 * 枚举成员用下划线连接的全大写单词组合
 ```java
+// 正确
 STATUS_NEW
 STATUS_PAID
 ```
@@ -116,6 +122,7 @@ private String userName$
 * 使用名词或名词性词组
 * 命名准确，望文知义，避免不必要的缩写
 ```java
+// 错误
 private String kName;
 ```
 
@@ -135,6 +142,7 @@ private String kName;
 [2.3] **特殊字符规范**
 * 源代码文件中的特殊字符如中文字符推荐使用Unicode格式书写并添加注释
 ```java
+// 正确
 private String chineseName = "\u02a3c\u00b2a"; //中文名为**
 ```
 
@@ -173,6 +181,7 @@ private String chineseName = "\u02a3c\u00b2a"; //中文名为**
 [3.2] **空格使用规范**
 * 在for，if，do，while等控制语句关键词后用空格将逻辑语句块隔离
 ```java
+// 正确
 for (int i = 0; i < 10; i++) {
 }
 ```
@@ -184,12 +193,14 @@ for (int i = 0; i < 10; i++) {
 [3.3] **换行规范**
 * 运算符与下行一起换行
 ```java
+// 正确
 String str = "the 1st line "
     + "the 2nd line "
     + "the 3rd line ";
 ```
 * 方法调用的.与下文一起换行
 ```java
+// 正确
 StringBuilder sb = new StringBuilder();
 sb.append("the 1st line")
     .append("the 2nd line")
@@ -197,20 +208,29 @@ sb.append("the 1st line")
 ```
 * 多个参数时在逗号后换行
 ```java
+// 正确
 public void methoName(String arg1, String arg2,
                         Integer arg3, Integer arg4) {
 }
 ```
 * 在括号前不换行
+```java
+// 错误
+public void methodName
+(String arg1, String arg2, String arg3 String arg4){
+}
+```
 
 <a name="var-init-guide"></a>
 [3.4] **变量的声明和初始化**
 * 声明同类型的多个变量用逗号隔开，逗号后面增加空格隔离
 ```java
+// 正确
 private int outerIndex = 0, innerIndex = 0;
 ```
 * 初始化long， float和double类型时使用L，F和D后缀
 ```java
+// 正确
 private long bigRange = 1L;
 private double square = 3.14D;
 ```
