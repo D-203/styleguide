@@ -1,13 +1,35 @@
 # # HTML&CSS 编码规范
 
-## 1 说明
-1. 文档参考 [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#Background)整理。
+## 说明
+1. 文档主要参考 [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#Background)整理。
 
-## 2 通用规则
+## 内容大纲
 
-### 2.1 编码风格规则
+1. [Terminology](#terminology)
+    - [Rule Declaration](#rule-declaration)
+    - [Selectors](#selectors)
+    - [Properties](#properties)
+1. [CSS](#css)
+    - [Formatting](#formatting)
+    - [Comments](#comments)
+    - [OOCSS and BEM](#oocss-and-bem)
+    - [ID Selectors](#id-selectors)
+    - [JavaScript hooks](#javascript-hooks)
+    - [Border](#border)
+1. [Sass](#sass)
+    - [Syntax](#syntax)
+    - [Ordering](#ordering-of-property-declarations)
+    - [Variables](#variables)
+    - [Mixins](#mixins)
+    - [Extend directive](#extend-directive)
+    - [Nested selectors](#nested-selectors)
 
-#### 2.1.1 协议 Protocol
+
+## 1 通用规则
+
+### 1.1 编码风格规则
+
+#### 1.1.1 协议 Protocol
 
 尽可能为嵌入资源使用 HTTPS 协议。
 
@@ -30,9 +52,9 @@
 ``` 
 
 	
-### 2.2 通用格式规则
+### 1.2 通用格式规则
 
-#### 2.2.1 缩进 Indention
+#### 1.2.1 缩进 Indention
 
 一次缩进2个空格。
 
@@ -49,7 +71,7 @@ Don’t use tabs or mix tabs and spaces for indentation.
 }
 ```
 
-#### 2.2.2 大小写 Capitalization
+#### 1.2.2 大小写 Capitalization
 
 只使用小写。
 
@@ -69,7 +91,7 @@ color: #E5E5E5;
 color: #e5e5e5;
 ``` 
 	
-#### 2.2.3 结尾空格 Trailing Whitespace
+#### 1.2.3 结尾空格 Trailing Whitespace
 
 结尾不留空格。
 
@@ -83,9 +105,9 @@ Trailing white spaces are unnecessary and can complicate diffs.
 <p>Yes please.
 ``` 
 
-### 2.3 元规则 General Meta Rules
+### 1.3 元规则 General Meta Rules
 
-#### 2.3.1 编码 Encoding
+#### 1.3.1 编码 Encoding
 
 使用UTF-8编码 (非 BOM)。
 
@@ -95,7 +117,7 @@ Specify the encoding in HTML templates and documents via `<meta charset="utf-8">
 
 (More on encodings and when and how to specify them can be found in [Handling character encodings in HTML and CSS](https://www.w3.org/International/tutorials/tutorial-char-enc/).)
 
-#### 2.3.2 注释 Comments
+#### 1.3.2 注释 Comments
 
 尽可能在需要时对代码进行说明。
 
@@ -103,7 +125,7 @@ Use comments to explain code: What does it cover, what purpose does it serve, wh
 
 (This item is optional as it is not deemed a realistic expectation to always demand fully documented code. Mileage may vary heavily for HTML and CSS code and depends on the project’s complexity.)
 
-#### 2.3.3 待做事项 Action Items
+#### 1.3.3 待做事项 Action Items
 
 使用 `TODO`标记待做项。
 
@@ -124,13 +146,13 @@ Append action items after a colon as in `TODO: action item`.
 </ul>
 ```
 
-## 3 HTML
+## 2 HTML
 
-### 3.1 风格规则 HTML Style Rules
+### 2.1 风格规则 HTML Style Rules
 
-#### 3.1.1 文档类型 Document Type
+#### 2.1.1 文档类型 Document Type
 
-使用 HTML5 文档类型。
+在HTML文档顶部使用 HTML5 文档类型`<!DOCTYPE html>`。
 
 HTML5 (HTML syntax) is preferred for all HTML documents: `<!DOCTYPE html>`.
 
@@ -138,7 +160,15 @@ HTML5 (HTML syntax) is preferred for all HTML documents: `<!DOCTYPE html>`.
 
 Although fine with HTML, do not close void elements, i.e. write `<br>`, not `<br />`.
 
-#### 3.1.2 HTML合法性 HTML Validity
+#### 2.1.2 `<head>`
+
+* 始终加 title 标签；
+* 对于搜索引擎友好的页面添加 `keywords` 和 `description` 元标签`<meta>` ；
+* 始终加 favicon；
+* 除非必须，不在 head中加载 javascript文件（尽量在`<body>`底部加载 javascript）。
+
+
+#### 2.1.3 HTML合法性 HTML Validity
 
 尽可能使用合法的HTML。
 
@@ -160,9 +190,14 @@ Using valid HTML is a measurable baseline quality attribute that contributes to 
 <article>This is only a test.</article>
 ```
 
-#### 3.1.3 语义 Semantics
+#### 2.1.4 表单 `<form>`
+* 每个表单 input 都要包含一个 `<label>` 标签， *特别是 radio 和 checkbox 元素*.
+
+#### 2.1.5 语义 Semantics
 
 根据用途恰当使用HTML。
+
+比如有序列表使用 `ol` ，链接使用 `a` ，按钮使用 `button` 。
 
 Use elements (sometimes incorrectly called “tags”) for what they have been created for. For example, use heading elements for headings, `p` elements for paragraphs, `a` elements for anchors, etc.
 
@@ -176,7 +211,7 @@ Using HTML according to its purpose is important for accessibility, reuse, and c
 <a href="recommendations/">All recommendations</a>
 ```
 
-#### 3.1.4 多媒体回退 Multimedia Fallback
+#### 2.1.6 多媒体回退 Multimedia Fallback
 
 为多媒体内容提供备选替代内容。
 
@@ -194,7 +229,7 @@ Providing alternative contents is important for accessibility reasons: A blind u
 <img src="spreadsheet.png" alt="Spreadsheet screenshot.">
 ```
 
-#### 3.1.5 关注分离原则 Separation of Concerns
+#### 2.1.7 关注分离 Separation of Concerns
 
 表现层和行为逻辑结构分离。
 
@@ -230,7 +265,7 @@ Separating structure from presentation from behavior is important for maintenanc
 <p>It’s awesome!
 ```
 
-#### 3.1.6 字符实体（转义符）Entity References
+#### 2.1.8 字符实体（转义符）Entity References
 
 不要使用字符实体。
 
@@ -246,7 +281,7 @@ The currency symbol for the Euro is &ldquo;&eur;&rdquo;.
 The currency symbol for the Euro is “€”.
 ```
 
-#### 3.1.7 可选标签Optional Tags
+#### 2.1.9 可选标签 Optional Tags
 
 忽略可选标签。
 
@@ -272,7 +307,7 @@ For file size optimization and scannability purposes, consider omitting optional
 <p>Qed.
 ```
 
-#### 3.1.8 `type`特性标记 `type` Attributes
+#### 2.1.10 `type`特性标记 `type` Attributes
 
 样式表和脚本标签省略`type` 特性标记。
 
@@ -296,9 +331,9 @@ Specifying `type` attributes in these contexts is not necessary as HTML5 implies
 <script src="https://www.google.com/js/gweb/analytics/autotrack.js"></script>
 ```
 
-### 3.2 HTML格式规则 HTML Formatting Rules
+### 2.2 HTML格式规则 HTML Formatting Rules
 
-#### 3.2.1 通用格式 General Formatting
+#### 2.2.1 通用格式 General Formatting
 
 对每个代码块(block)/列表(list)或表格(table)元素使用单独一行，并且缩进每个子元素。
 
@@ -331,7 +366,7 @@ Also, indent them if they are child elements of a block, list, or table element.
 </table>
 ```
 
-#### 3.2.2 HTML引号标记 HTML Quotation Marks
+#### 2.2.2 HTML引号标记 HTML Quotation Marks
 
 对于特性标记(attributes)的值使用双引号标记。
 
@@ -345,13 +380,13 @@ Use double (`""`) rather than single quotation marks (`''`) around attribute val
 <a class="maia-button maia-button-secondary">Sign in</a>
 ```
 
-## 4 CSS
+## 3 CSS
 
-### 4.1 CSS风格规则 CSS Style Rules
+### 3.1 CSS风格规则 CSS Style Rules
 
-#### 4.1.1 CSS合法性 CSS Validity
+#### 3.1.1 CSS合法性 CSS Validity
 
-尽可能使用合法的CSS。
+尽可能使用合法的 CSS。
 
 Unless dealing with CSS validator bugs or requiring proprietary syntax, use valid CSS code.
 
@@ -359,9 +394,9 @@ Use tools such as the [W3C CSS validator](https://jigsaw.w3.org/css-validator/) 
 
 Using valid CSS is a measurable baseline quality attribute that allows to spot CSS code that may not have any effect and can be removed, and that ensures proper CSS usage.
 
-#### 4.1.2 ID和Class命名 ID and Class Naming
+#### 3.1.2 ID 和Class命名 ID and Class Naming
 
-ID和Class使用有意义或者通用的名字。
+ID 和 Class 使用有意义或者通用的名字。
 
 Instead of presentational or cryptic names, always use ID and class names that reflect the purpose of the element in question, or that are otherwise generic.
 
@@ -389,9 +424,9 @@ Using functional or generic names reduces the probability of unnecessary documen
 .alt {}
 ```
 
-#### 4.1.3 ID和Class名字风格 ID and Class Name Style
+#### 3.1.3 ID 和 Class名字风格 ID and Class Name Style
 
-ID和class起名字尽可能短，但必须时要够长（含义表达清楚）。
+ID 和 class起名字尽可能短，但必须时要够长（含义表达清楚）。
 Try to convey what an ID or class is about while being as brief as possible.
 
 Using ID and class names this way contributes to acceptable levels of understandability and code efficiency.
@@ -406,9 +441,9 @@ Using ID and class names this way contributes to acceptable levels of understand
 .author {}
 ```
 
-#### 4.1.4 类型选择器 Type Selectors
+#### 3.1.4 类型选择器 Type Selectors
 
-避免使用类型选择器修饰ID和class 
+避免使用类型选择器修饰 ID 和 class 
 
 Unless necessary (for example with helper classes), do not use element names in conjunction with IDs or classes.
 
@@ -424,7 +459,7 @@ div.error {}
 .error {}
 ```
 
-#### 4.1.5 属性缩写 Shorthand Properties
+#### 3.1.5 属性缩写 Shorthand Properties
 
 属性写的尽可能简略。
 
@@ -449,9 +484,9 @@ font: 100%/1.6 palatino, georgia, serif;
 padding: 0 1em 2em;
 ``` 
 
-#### 4.1.6 0和单位 0 and Units
+#### 3.1.6 0 和单位 0 and Units
 
-除非有明确要求，一般省略0值后面的单位。
+除非有明确要求，一般省略 0 值后面的单位。
 
 Do not use units after `0` values unless they are required.
 
@@ -462,7 +497,7 @@ margin: 0;
 padding: 0;
 ```
 
-#### 4.1.7 开头的0 Leading 0s
+#### 3.1.7 开头的 0 Leading 0s
 
 省略值开头的0。
 
@@ -472,7 +507,7 @@ Do not use put `0`s in front of values or lengths between -1 and 1.
 font-size: .8em;
 ```
 
-#### 4.1.8 十六进制表示法 Hexadecimal Notation
+#### 3.1.8 十六进制表示法 Hexadecimal Notation
 
 尽可能使用3字符的十六进制表示法。
 
@@ -486,7 +521,7 @@ color: #eebbcc;
 color: #ebc;
 ``` 
 
-#### 4.1.9 前缀 Prefixes
+#### 3.1.9 前缀 Prefixes
 
 Prefix selectors with an application-specific prefix (optional).
 
@@ -499,9 +534,9 @@ Using namespaces helps preventing naming conflicts and can make maintenance easi
 #maia-note {} /* Maia */
 ```
 
-#### 4.1.10 ID and Class Name Delimiters
+#### 3.1.10 ID 和 Class 分隔符 ID and Class Name Delimiters
 
-用横线分割ID和class名。
+用横线分割 ID  和 class 名。
 
 Do not concatenate words and abbreviations in selectors by any characters (including none at all) other than hyphens, in order to improve understanding and scannability.
 
@@ -517,15 +552,15 @@ Do not concatenate words and abbreviations in selectors by any characters (inclu
 .ads-sample {}
 ```
 
-#### 4.1.11 Hacks
+#### 3.1.11 Hacks
 
 尽量避免使用user agent检测以及Hack-先尝试不同的解决方法。
 
 It’s tempting to address styling differences over user agent detection or special CSS filters, workarounds, and hacks. Both approaches should be considered last resort in order to achieve and maintain an efficient and manageable code base. Put another way, giving detection and hacks a free pass will hurt projects in the long run as projects tend to take the way of least resistance. That is, allowing and making it easy to use detection and hacks means using detection and hacks more frequently—and more frequently is too frequently.
 
-### 4.2 CSS格式规则 CSS Formatting Rules
+### 3.2 CSS格式规则 CSS Formatting Rules
 
-#### 4.2.1 声明顺序 Declaration Order
+#### 3.2.1 声明顺序 Declaration Order
 
 声明条目按字母排序。
 Put declarations in alphabetical order in order to achieve consistent code in a way that is easy to remember and maintain.
@@ -543,7 +578,7 @@ text-align: center;
 text-indent: 2em;
 ```
 
-#### 4.2.2 块内容缩进 Block Content Indentation
+#### 3.2.2 块内容缩进 Block Content Indentation
 
 缩进所有的块内容。 Indent all block content.
 
@@ -560,7 +595,7 @@ Indent all [block content](https://www.w3.org/TR/CSS21/syndata.html#block), that
 }
 ```
 
-#### 4.2.3 声明中止 Declaration Stops
+#### 3.2.3 声明中止 Declaration Stops
 
 每个声明结尾后都要加分号。
 
@@ -580,7 +615,7 @@ End every declaration with a semicolon for consistency and extensibility reasons
 }
 ```
 
-#### 4.2.4 属性名结尾 Property Name Stops
+#### 3.2.4 属性名结尾 Property Name Stops
 
 每个属性名冒号后加一个空格。
 
@@ -598,7 +633,7 @@ h3 {
 }
 ```
 
-#### 4.2.5 声明块分离 Declaration Block Separation
+#### 3.2.5 声明块分离 Declaration Block Separation
 
 在最后一个选择器和声明块之间加一个空格。
 
@@ -624,7 +659,7 @@ The opening brace should be on the same line as the last selector in a given rul
 }
 ```
 
-#### 4.2.6 选择器和声明分离 Selector and Declaration Separation
+#### 3.2.6 选择器和声明分离 Selector and Declaration Separation
 
 使用新的行分隔选择器和声明。
 
@@ -645,7 +680,7 @@ h3 {
 }
 ```
 
-#### 4.2.7 规则分离 Rule Separation
+#### 3.2.7 规则分离 Rule Separation
 
 有多个规则时使用换行分离。
 
@@ -662,9 +697,9 @@ body {
 }
 ```
 
-#### 4.2.8 CSS 引号标记 CSS Quotation Marks
+#### 3.2.8 CSS 引号标记 CSS Quotation Marks
 
-attribute选择器和属性值使用单引号。
+attribute 选择器和属性值使用单引号。
 
 Use single (`''`) rather than double (`""`) quotation marks for attribute selectors or property values. Do not use quotation marks in URI values ( `url()`).
 
@@ -686,11 +721,13 @@ html {
 }
 ```
 
-### 4.3 CSS元规则 CSS Meta Rules
+### 3.3 CSS元规则 CSS Meta Rules
 
-#### 4.3.1 区块注释 Section Comments
+#### 3.3.1 注释 Comments
 
-用分块注释对区块进行分组 （可选）
+优先使用行注释 (`//` in Sass-land) ，对区块进行分组目的时可使用用分块注释。
+
+对于不能自说明(self-documenting)的代码写详尽的注释（比如z-index、兼容性或浏览器特定的hacks）；
 
 If possible, group style sheet sections together by using comments. Separate sections with new lines.
 
@@ -707,4 +744,92 @@ If possible, group style sheet sections together by using comments. Separate sec
 
 .adw-gallery {}
 ```
+
+
+### 3.4 SASS
+
+#### 3.4.1 语法
+* 使用 `.scss` 语法，而不是原始的 `.sass` 语法；
+* 按逻辑对常规 CSS和 `@include`声明进行排序。（见下方）
+
+#### 属性声明排序 Ordering of property declarations
+
+1. 属性声明 Property declarations
+
+    List all standard property declarations, anything that isn't an `@include` or a nested selector.
+
+    ```scss
+    .btn-green {
+      background: green;
+      font-weight: bold;
+      // ...
+    }
+    ```
+
+2. `@include`声明 `@include` declarations
+
+    Grouping `@include`s at the end makes it easier to read the entire selector.
+
+    ```scss
+    .btn-green {
+      background: green;
+      font-weight: bold;
+      @include transition(background 0.5s ease);
+      // ...
+    }
+    ```
+
+3. 嵌套选择器 Nested selectors
+
+    Nested selectors, _if necessary_, go last, and nothing goes after them. Add whitespace between your rule declarations and nested selectors, as well as between adjacent nested selectors. Apply the same guidelines as above to your nested selectors.
+
+    ```scss
+    .btn {
+      background: green;
+      font-weight: bold;
+      @include transition(background 0.5s ease);
+
+      .icon {
+        margin-right: 10px;
+      }
+    }
+    ```
+
+#### 变量 Variables
+
+Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. `$_my-variable`).
+
+#### 混入 Mixins
+
+Mixins should be used to DRY up your code, add clarity, or abstract complexity--in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
+
+#### 扩展指令 Extend directive
+
+`@extend` should be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using `@extend`, and you can DRY up your stylesheets nicely with mixins.
+
+#### 嵌套选择器 Nested selectors
+
+**选择器嵌套深度不要超过3层！**
+
+```scss
+.page-container {
+  .content {
+    .profile {
+      // STOP!
+    }
+  }
+}
+```
+
+When selectors become this long, you're likely writing CSS that is:
+
+* Strongly coupled to the HTML (fragile) *—OR—*
+* Overly specific (powerful) *—OR—*
+* Not reusable
+
+
+Again: **不要使用ID选择器！**
+
+If you must use an ID selector in the first place (and you should really try not to), they should never be nested. If you find yourself doing this, you need to revisit your markup, or figure out why such strong specificity is needed. If you are writing well formed HTML and CSS, you should **never** need to do this.
+
 
