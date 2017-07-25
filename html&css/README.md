@@ -51,7 +51,7 @@
 
 只使用小写。
 
-所有代码均应该小写：对于HTML元素命名、特性(attribute)和特性值（除非 `text/CDATA`）、CSS 选择器(selectors)、属性和属性值均适用。
+所有代码均应该小写：对于HTML元素命名、特性（attribute）和特性值（除非 `text/CDATA`）、CSS 选择器(selectors)、属性和属性值均适用。
 
 ``` 
 <!-- Not recommended -->
@@ -71,7 +71,7 @@ color: #e5e5e5;
 
 结尾不留空格。
 
-结尾的空格没有必要，并且会给diff操作带来麻烦。
+结尾的空格没有必要，并且会给 diff 操作带来麻烦。
 
 ``` 
 <!-- Not recommended -->
@@ -85,31 +85,32 @@ color: #e5e5e5;
 
 #### 1.3.1 编码 Encoding
 
-使用UTF-8编码 (非 BOM)。
+使用UTF-8编码 (不要带[字节序标记](https://en.wikipedia.org/wiki/Byte_order_mark))。
 
 确保编辑器使用 UTF-8 字符编码，不带字节序标记。
 
-使用 `<meta charset="utf-8">` 在HTML模板中指定编码。Do not specify the encoding of style sheets as these assume UTF-8.
+使用 `<meta charset="utf-8">` 在HTML模板中指定编码（不需要为样式表单独指定）。
 
-（更多关于何时以及如何指定编码的内容可以参考  [Handling character encodings in HTML and CSS](https://www.w3.org/International/tutorials/tutorial-char-enc/).)）
+（更多有关何时以及如何指定编码的讨论可以参考  [Handling character encodings in HTML and CSS](https://www.w3.org/International/tutorials/tutorial-char-enc/).)）
 
 #### 1.3.2 注释 Comments
 
 尽可能在需要时对代码进行说明。
 
-Use comments to explain code: What does it cover, what purpose does it serve, why is respective solution used or preferred?
+使用注释对代码进行解释说明：包含什么、服务了什么目的、使用相应解决方案的原因。
 
-(This item is optional as it is not deemed a realistic expectation to always demand fully documented code. Mileage may vary heavily for HTML and CSS code and depends on the project’s complexity.)
+（此项不强制，因为完全保持代码文档完备不现实，依据项目负责程度不同，注释代码带来的好处可能有很大差别）
+
 
 #### 1.3.3 待做事项 Action Items
 
 使用 `TODO`标记待做项。
 
-Highlight todos by using the keyword `TODO` only, not other common formats like `@@`.
+`TODO` 关键词突出待做事项，不要使用其它如  `@@` 这样的通用格式。
 
-Append a contact (username or mailing list) in parentheses as with the format `TODO(contact)`.
+使用 `TODO(contact)`的格式括号中附上联系人（用户名或邮件列表）。
 
-Append action items after a colon as in `TODO: action item`.
+冒号后面描述事项内容  `TODO: action item`.
 
 ``` 	
 {# TODO(john.doe): revisit centering #}
