@@ -37,18 +37,55 @@
 [1.2] **包命名规范**
 * 全小写英文
 * 多个单词间不能使用驼峰或下划线连接
-* org.springFramework 或 org.spring_framework 是不符合规范的
+```java
+// 正确
+org.springframework.context
+// 错误
+org.springFramework.context
+org.spring_framework.context
+```
 
 <a name="class-naming"></a>
 [1.3] **类命名规范**
 * 驼峰式命名法 UpperCamelCase
-* 使用表明类功能的名词或短语命名
+* 使用表明类功能的名词或动词短语命名
 * 测试类以待测试类名加Test构成
+```java
+// 正确
+UserDAOTest
+```
 * 抽象类以Abstract开头
-* 类的命名能够显示的归类其所处架构层级，如: LoginFormBean, LoginController, LoginService, UserDAO
-* 如果应用类设计模式，以设计模式作为后缀：RouterAdapter，LoginProxy，TransctionFactory
+```java
+// 正确
+AbstractXmlParser
+```
+* 类的命名能够显示的归类其所处架构层级
+```java
+// 正确
+LoginFormBean
+LoginController
+LoginService
+UserDAO
+```
+* 如果应用类设计模式，以设计模式作为后缀
+```java
+// 正确
+RouterAdapter
+LoginProxy
+TransctionFactory
+```
 * 领域模型相关命名规范(待讨论),如：DO，DTO，BO，VO
-* 枚举类的命名加后缀Enum，枚举成员用下划线连接的全大写单词组合
+* 枚举类的命名加后缀Enum
+```java
+// 正确
+OrderStatusEnum
+```
+* 枚举成员用下划线连接的全大写单词组合
+```java
+// 正确
+STATUS_NEW
+STATUS_PAID
+```
 
 <a name="method-naming"></a>
 [1.4] **方法命名规范**
@@ -72,11 +109,22 @@
 
 <a name="variable-naming"></a>
 [1.6] **变量命名规范**
-* 不能使用_或$
+* 不能以下划线和美元符号开始或结束
+```java
+// 错误：
+private String _userName;
+private String $userName;
+private String userName_;
+private String userName$
+```
 * 小写字母开头的英文单词的组合lowerCamelCase
 * 使用驼峰式命名法
 * 使用名词或名词性词组
-* 命名准确，望文知义，避免不必要的缩写，如kName，sName
+* 命名准确，望文知义，避免不必要的缩写
+```java
+// 错误
+private String kName;
+```
 
 <a name="source-structure"></a>
 ## 源代码文件结构
@@ -93,7 +141,10 @@
 <a name="special-chars"></a>
 [2.3] **特殊字符规范**
 * 源代码文件中的特殊字符如中文字符推荐使用Unicode格式书写并添加注释
-* 如：private String chineseName = "\u02a3c\u00b2a"; //中文名为**
+```java
+// 正确
+private String chineseName = "\u02a3c\u00b2a"; //中文名为**
+```
 
 <a name="structure-guide"></a>
 [2.4] **源代码文件结构规范**
@@ -128,8 +179,12 @@
 
 <a name="whitespace-guide"></a>
 [3.2] **空格使用规范**
-* for (int i = 0; i < 10; i++)
-* 在for，if，do，while等关键词后用空格将逻辑语句块隔离
+* 在for，if，do，while等控制语句关键词后用空格将逻辑语句块隔离
+```java
+// 正确
+for (int i = 0; i < 10; i++) {
+}
+```
 * 在二元运算符的左右分别用空格隔离
 * 分号代表前一语句的结束，它之前不需要空格，它之后用空格将两句语句隔离
 * 一元运算符与操作数之间不用空格隔离
@@ -137,20 +192,71 @@
 <a name="linewrap-guide"></a>
 [3.3] **换行规范**
 * 运算符与下行一起换行
+```java
+// 正确
+String str = "the 1st line "
+    + "the 2nd line "
+    + "the 3rd line ";
+```
 * 方法调用的.与下文一起换行
+```java
+// 正确
+StringBuilder sb = new StringBuilder();
+sb.append("the 1st line")
+    .append("the 2nd line")
+    .append("the 3rd line");
+```
 * 多个参数时在逗号后换行
+```java
+// 正确
+public void methoName(String arg1, String arg2,
+                        Integer arg3, Integer arg4) {
+}
+```
 * 在括号前不换行
+```java
+// 错误
+public void methodName
+(String arg1, String arg2, String arg3 String arg4){
+}
+```
 
 <a name="var-init-guide"></a>
 [3.4] **变量的声明和初始化**
-* private int outerIndex = 0, innerIndex = 0;
-* private long bigRange = 1L;
-* private String[] cities = new String[] {"BJ", "SH"};
 * 声明同类型的多个变量用逗号隔开，逗号后面增加空格隔离
+```java
+// 正确
+private int outerIndex = 0, innerIndex = 0;
+```
 * 初始化long， float和double类型时使用L，F和D后缀
+```java
+// 正确
+private long bigRange = 1L;
+private double square = 3.14D;
+```
 * 声明数组类型变量时[]紧跟在类型之后，在变量名之前
+```java
+// 正确
+private String[] cities = new String[] {"BJ", "SH"};
+// 错误
+private String cities[] = new String[] {
+                                        "BJ", 
+                                        "SH"
+                                        };
+```
 * 数组通过枚举法初始化时在同一行，过长时才进行换行
 * 多行变量声明之间不尽兴纵向对齐
+```java
+// 正确
+private Integer userAge;
+private Double userWeight;
+private int size;
+
+// 错误
+private Integer userAge;
+private Double  userWeight;
+private int     size;
+```
 
 <a name="syntax-guide"></a>
 [3.5] **修饰符的顺序**
@@ -159,7 +265,12 @@
 
 <a name="comments-guide"></a>
 ## 注释规范
-* 类注释和方法注释使用多行注释  /** */
+* 类注释和方法注释使用多行注释 
+```java
+/**
+ * comments go here
+ */
+```
 * 变量注释和代码块注释使用单行注释 // comments
 * 注释的内容项目(待讨论)
 
@@ -167,6 +278,18 @@
 ## 注解规范
 * 注解跟着注释之后
 * 每个注解单独占一行，只有一个注解时也是
+```java
+// 正确
+@Override
+@Transactional
+public void method() {
+}
+
+// 错误
+@Override @Transactional 
+public void method() {
+}
+```
 
 
 
