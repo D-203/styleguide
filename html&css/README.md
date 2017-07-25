@@ -1,29 +1,7 @@
-# # HTML&CSS 编码规范
+# HTML&CSS 编码规范
 
 ## 说明
-1. 文档主要参考 [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#Background)整理。
-
-## 内容大纲
-
-1. [Terminology](#terminology)
-    - [Rule Declaration](#rule-declaration)
-    - [Selectors](#selectors)
-    - [Properties](#properties)
-1. [CSS](#css)
-    - [Formatting](#formatting)
-    - [Comments](#comments)
-    - [OOCSS and BEM](#oocss-and-bem)
-    - [ID Selectors](#id-selectors)
-    - [JavaScript hooks](#javascript-hooks)
-    - [Border](#border)
-1. [Sass](#sass)
-    - [Syntax](#syntax)
-    - [Ordering](#ordering-of-property-declarations)
-    - [Variables](#variables)
-    - [Mixins](#mixins)
-    - [Extend directive](#extend-directive)
-    - [Nested selectors](#nested-selectors)
-
+1. 文档主要参考 [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#Background) 整理。
 
 ## 1 通用规则
 
