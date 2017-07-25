@@ -5,7 +5,7 @@
 
 ## 1 通用规则
 
-### 1.1 编码风格规则
+### 1.1 编码风格
 
 #### 1.1.1 协议 Protocol
 
@@ -30,13 +30,11 @@
 ``` 
 
 	
-### 1.2 通用格式规则
+### 1.2 通用格式
 
 #### 1.2.1 缩进 Indention
 
-一次缩进2个空格。
-
-Don’t use tabs or mix tabs and spaces for indentation.
+使用软tab，一次缩进2个空格。不要混用 tabs 和空格。
 
 ``` 
 <ul>
@@ -53,7 +51,7 @@ Don’t use tabs or mix tabs and spaces for indentation.
 
 只使用小写。
 
-All code has to be lowercase: This applies to HTML element names, attributes, attribute values (unless `text/CDATA`), CSS selectors, properties, and property values (with the exception of strings).
+所有代码均应该小写：对于HTML元素命名、特性(attribute)和特性值（除非 `text/CDATA`）、CSS 选择器(selectors)、属性和属性值均适用。
 
 ``` 
 <!-- Not recommended -->
@@ -73,7 +71,7 @@ color: #e5e5e5;
 
 结尾不留空格。
 
-Trailing white spaces are unnecessary and can complicate diffs.
+结尾的空格没有必要，并且会给diff操作带来麻烦。
 
 ``` 
 <!-- Not recommended -->
@@ -89,11 +87,11 @@ Trailing white spaces are unnecessary and can complicate diffs.
 
 使用UTF-8编码 (非 BOM)。
 
-Make sure your editor uses UTF-8 as character encoding, without a byte order mark.
+确保编辑器使用 UTF-8 字符编码，不带字节序标记。
 
-Specify the encoding in HTML templates and documents via `<meta charset="utf-8">`. Do not specify the encoding of style sheets as these assume UTF-8.
+使用 `<meta charset="utf-8">` 在HTML模板中指定编码。Do not specify the encoding of style sheets as these assume UTF-8.
 
-(More on encodings and when and how to specify them can be found in [Handling character encodings in HTML and CSS](https://www.w3.org/International/tutorials/tutorial-char-enc/).)
+（更多关于何时以及如何指定编码的内容可以参考  [Handling character encodings in HTML and CSS](https://www.w3.org/International/tutorials/tutorial-char-enc/).)）
 
 #### 1.3.2 注释 Comments
 
