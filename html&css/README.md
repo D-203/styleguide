@@ -352,9 +352,9 @@ Also, indent them if they are child elements of a block, list, or table element.
 
 ## 3 CSS
 
-### 3.1 CSS 风格规则 CSS Style Rules
+### 3.1 风格规则 CSS Style Rules
 
-#### 3.1.1 CSS合法性 CSS Validity
+#### 3.1.1 CSS 合法性 CSS Validity
 
 尽可能使用合法的 CSS。
 
@@ -495,7 +495,7 @@ color: #ebc;
 
 #### 3.1.9 前缀 Prefixes
 
-Prefix selectors with an application-specific prefix (optional).
+（可选）为选择器添加应用相关的前缀 
 
 In large projects as well as for code that gets embedded in other projects or on external sites use prefixes (as namespaces) for ID and class names. Use short, unique identifiers followed by a dash.
 
@@ -552,7 +552,7 @@ text-indent: 2em;
 
 #### 3.2.2 块内容缩进 Block Content Indentation
 
-缩进所有的块内容。 Indent all block content.
+缩进所有的块内容。
 
 Indent all [block content](https://www.w3.org/TR/CSS21/syndata.html#block), that is rules within rules as well as declarations, so to reflect hierarchy and improve understanding.
 
@@ -571,7 +571,7 @@ Indent all [block content](https://www.w3.org/TR/CSS21/syndata.html#block), that
 
 每个声明结尾后都要加分号。
 
-End every declaration with a semicolon for consistency and extensibility reasons.
+为了一致性和扩展性在每个生命结尾都要加分号。
 
 ``` 	
 /* Not recommended */
@@ -693,11 +693,11 @@ html {
 }
 ```
 
-### 3.3 CSS元规则 CSS Meta Rules
+### 3.3 CSS 元规则 CSS Meta Rules
 
 #### 3.3.1 注释 Comments
 
-优先使用行注释 (`//` in Sass-land) ，对区块进行分组目的时可使用用分块注释。
+优先使用行注释 (`//`) ，对区块进行分组目的时可使用用分块注释。
 
 对于不能自说明(self-documenting)的代码写详尽的注释（比如z-index、兼容性或浏览器特定的hacks）；
 
