@@ -147,13 +147,9 @@ color: #e5e5e5;
 
 #### 2.1.3 HTML 合法性 HTML Validity
 
-尽可能使用合法有效的 HTML。
+除非对文件体积有极高的要求等特殊原因外，应尽可能使用合法有效的 HTML。
 
-Use valid HTML code unless that is not possible due to otherwise unattainable performance goals regarding file size.
-
-使用类似 [W3C HTML validator](https://validator.w3.org/nu/) 的工具做合法性检查测试。
-
-Using valid HTML is a measurable baseline quality attribute that contributes to learning about technical requirements and constraints, and that ensures proper HTML usage.
+可使用类似 [W3C HTML validator](https://validator.w3.org/nu/) 的工具做合法性检查测试。
 
 ``` 	
 <!-- Not recommended -->
@@ -175,11 +171,9 @@ Using valid HTML is a measurable baseline quality attribute that contributes to 
 
 依据用途恰当使用HTML。
 
-如有序列表使用 `ol` ，链接使用 `a` ，按钮使用 `button` 。
+如有序列表使用 `ol` ，链接使用 `a` ，按钮使用 `button` ，文章段落使用 `p` 等等。
 
-Use elements (sometimes incorrectly called “tags”) for what they have been created for. For example, use heading elements for headings, `p` elements for paragraphs, `a` elements for anchors, etc.
-
-Using HTML according to its purpose is important for accessibility, reuse, and code efficiency reasons.
+根据用途恰当使用标签对于可访问性、复用和代码效率很重要。
 
 ``` 	
 <!-- Not recommended -->
@@ -213,7 +207,7 @@ Using HTML according to its purpose is important for accessibility, reuse, and c
 
 严格保持结构(markup 标记)、展现（styling）和行为（scripting）分开，并且保持三者的交互尽可能少。
 
-That is, make sure documents and templates contain only HTML and HTML that is solely serving structural purposes. Move everything presentational into style sheets, and everything behavioral into scripts.
+即：确保文档和模板只包含用作结构化目的的 HTML；把所有展现描述逻辑移到样式表中；行为逻辑放在 scripts 中。
 
 In addition, keep the contact area as small as possible by linking as few style sheets and scripts as possible from documents and templates.
 
