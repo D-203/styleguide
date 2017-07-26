@@ -108,9 +108,9 @@ color: #e5e5e5;
 
 `TODO` 关键词突出待做事项，不要使用其它如  `@@` 这样的通用格式。
 
-使用 `TODO(contact)`的格式括号中附上联系人（用户名或邮件列表）。
+使用 `TODO(contact)`的格式括号中附上联系人信息（用户名或邮件列表）。
 
-冒号后面描述事项内容  `TODO: action item`.
+冒号后面描述事项内容  `TODO: action item`。
 
 ``` 	
 {# TODO(john.doe): revisit centering #}
@@ -131,27 +131,27 @@ color: #e5e5e5;
 
 在HTML文档顶部使用 HTML5 文档类型`<!DOCTYPE html>`。
 
-HTML5 (HTML syntax) is preferred for all HTML documents: `<!DOCTYPE html>`.
+对于所有HTML文档推荐使用HTML5 (HTML 语法)： `<!DOCTYPE html>`.
 
 (It’s recommended to use HTML, as `text/html`. Do not use XHTML. XHTML, as [`application/xhtml+xml`](https://hixie.ch/advocacy/xhtml), lacks both browser and infrastructure support and offers less room for optimization than HTML.)
 
-Although fine with HTML, do not close void elements, i.e. write `<br>`, not `<br />`.
+不要关闭空标签（void elements），比如用 `<br>`这样的写法，而不是 `<br />`.
 
 #### 2.1.2 `<head>`
 
 * 始终加 title 标签；
 * 对于搜索引擎友好的页面添加 `keywords` 和 `description` 元标签`<meta>` ；
 * 始终加 favicon；
-* 除非必须，不在 head中加载 javascript文件（尽量在`<body>`底部加载 javascript）。
+* 除非必须，不要在 head 中加载 javascript文件（尽量在`<body>`底部加载）。
 
 
-#### 2.1.3 HTML合法性 HTML Validity
+#### 2.1.3 HTML 合法性 HTML Validity
 
-尽可能使用合法的HTML。
+尽可能使用合法有效的 HTML。
 
 Use valid HTML code unless that is not possible due to otherwise unattainable performance goals regarding file size.
 
-Use tools such as the [W3C HTML validator](https://validator.w3.org/nu/) to test.
+使用类似 [W3C HTML validator](https://validator.w3.org/nu/) 的工具做合法性检查测试。
 
 Using valid HTML is a measurable baseline quality attribute that contributes to learning about technical requirements and constraints, and that ensures proper HTML usage.
 
@@ -168,13 +168,14 @@ Using valid HTML is a measurable baseline quality attribute that contributes to 
 ```
 
 #### 2.1.4 表单 `<form>`
-* 每个表单 input 都要包含一个 `<label>` 标签， *特别是 radio 和 checkbox 元素*.
+
+每个表单 input 都要包含一个 `<label>` 标签， *特别是 radio 和 checkbox 元素*.
 
 #### 2.1.5 语义 Semantics
 
-根据用途恰当使用HTML。
+依据用途恰当使用HTML。
 
-比如有序列表使用 `ol` ，链接使用 `a` ，按钮使用 `button` 。
+如有序列表使用 `ol` ，链接使用 `a` ，按钮使用 `button` 。
 
 Use elements (sometimes incorrectly called “tags”) for what they have been created for. For example, use heading elements for headings, `p` elements for paragraphs, `a` elements for anchors, etc.
 
@@ -192,9 +193,9 @@ Using HTML according to its purpose is important for accessibility, reuse, and c
 
 为多媒体内容提供备选替代内容。
 
-For multimedia, such as images, videos, animated objects via `canvas`, make sure to offer alternative access. For images that means use of meaningful alternative text (`alt`) and for video and audio transcripts and captions, if available.
+对于多媒体内容，比如图片、视频、通过 `canvas` 绘制的动画对象，确保提供替代访问信息。对图片来说，可以使用有确切含义的文本 (`alt`) ，对于视频和音频如果可用的话可以使用内容文本或标题。
 
-Providing alternative contents is important for accessibility reasons: A blind user has few cues to tell what an image is about without `@alt`, and other users may have no way of understanding what video or audio contents are about either.
+提供替代内容对于可访问性（accessibility）非常重要：举例来说，对于盲人用户，没有`@alt`的话就没法获取图片相关的线索。
 
 (For images whose `alt` attributes would introduce redundancy, and for images whose purpose is purely decorative which you cannot immediately use CSS for, use no alternative text, as in `alt=""`.)
 
@@ -210,7 +211,7 @@ Providing alternative contents is important for accessibility reasons: A blind u
 
 表现层和行为逻辑结构分离。
 
-Strictly keep structure (markup), presentation (styling), and behavior (scripting) apart, and try to keep the interaction between the three to an absolute minimum.
+严格保持结构(markup 标记)、展现（styling）和行为（scripting）分开，并且保持三者的交互尽可能少。
 
 That is, make sure documents and templates contain only HTML and HTML that is solely serving structural purposes. Move everything presentational into style sheets, and everything behavioral into scripts.
 
@@ -246,9 +247,9 @@ Separating structure from presentation from behavior is important for maintenanc
 
 不要使用字符实体。
 
-There is no need to use entity references like `&mdash;`, `&rdquo;`, or `&#x263a;`, assuming the same encoding (UTF-8) is used for files and editors as well as among teams.
+在团队间为文件和编辑器使用相同编码（UTF-8）的前提下，使用如 `&mdash;`, `&rdquo;` 或者 `&#x263a;`这样的 entity references 是没有必要的。
 
-The only exceptions apply to characters with special meaning in HTML (like `<` and `&`) as well as control or “invisible” characters (like no-break spaces).
+这里唯一的例外是对于在HTML中有特殊含义的符号如`<` 和 `&`，以及控制或不可见字符（如 no-break 空格）。
 
 ``` 	
 <!-- Not recommended -->
@@ -260,9 +261,9 @@ The currency symbol for the Euro is “€”.
 
 #### 2.1.9 可选标签 Optional Tags
 
-忽略可选标签。
+省略可选标签。
 
-For file size optimization and scannability purposes, consider omitting optional tags. The [HTML5 specification](https://whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax-tag-omission) defines what tags can be omitted.
+为了文件优化和扫描目的，可以考虑省略可选标签。 [HTML5 标准](https://whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax-tag-omission) 定义了可以忽略的标签。
 
 (This approach may require a grace period to be established as a wider guideline as it’s significantly different from what web developers are typically taught. For consistency and simplicity reasons it’s best served omitting all optional tags, not just a selection.)
 
@@ -286,9 +287,9 @@ For file size optimization and scannability purposes, consider omitting optional
 
 #### 2.1.10 `type`特性标记 `type` Attributes
 
-样式表和脚本标签省略`type` 特性标记。
+样式表和脚本标签省略 `type` 特性标记。
 
-Do not use `type` attributes for style sheets (unless not using CSS) and scripts (unless not using JavaScript).
+不要为样式表使用 `type` 特性标记（除非不使用 CSS），同理不要为scripts指定 `type` （除非不使用 JavaScript）。
 
 Specifying `type` attributes in these contexts is not necessary as HTML5 implies [`text/css`](https://whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-style-type) and [`text/javascript`](https://whatwg.org/specs/web-apps/current-work/multipage/scripting.html#attr-script-type) as defaults. This can be safely done even for older browsers.
 
@@ -312,7 +313,7 @@ Specifying `type` attributes in these contexts is not necessary as HTML5 implies
 
 #### 2.2.1 通用格式 General Formatting
 
-对每个代码块(block)/列表(list)或表格(table)元素使用单独一行，并且缩进每个子元素。
+对每个代码块（block）/列表（list）或表格（table）元素使用单独一行，并且缩进每个子元素。
 
 Independent of the styling of an element (as CSS allows elements to assume a different role per `display` property), put every block, list, or table element on a new line.
 
@@ -343,11 +344,9 @@ Also, indent them if they are child elements of a block, list, or table element.
 </table>
 ```
 
-#### 2.2.2 HTML引号标记 HTML Quotation Marks
+#### 2.2.2 引号使用 HTML Quotation Marks
 
-对于特性标记(attributes)的值使用双引号标记。
-
-Use double (`""`) rather than single quotation marks (`''`) around attribute values.
+对于特性标记（attributes）的值使用双引号 (`""`) 而不是单引 (`''`)号标记。
 
 ``` 	
 <!-- Not recommended -->
@@ -359,7 +358,7 @@ Use double (`""`) rather than single quotation marks (`''`) around attribute val
 
 ## 3 CSS
 
-### 3.1 CSS风格规则 CSS Style Rules
+### 3.1 CSS 风格规则 CSS Style Rules
 
 #### 3.1.1 CSS合法性 CSS Validity
 
@@ -367,15 +366,15 @@ Use double (`""`) rather than single quotation marks (`''`) around attribute val
 
 Unless dealing with CSS validator bugs or requiring proprietary syntax, use valid CSS code.
 
-Use tools such as the [W3C CSS validator](https://jigsaw.w3.org/css-validator/) to test.
+使用[W3C CSS 验证器](https://jigsaw.w3.org/css-validator/) 检测合法性。
 
 Using valid CSS is a measurable baseline quality attribute that allows to spot CSS code that may not have any effect and can be removed, and that ensures proper CSS usage.
 
-#### 3.1.2 ID 和Class命名 ID and Class Naming
+#### 3.1.2 ID 和 Class命名 ID and Class Naming
 
 ID 和 Class 使用有意义或者通用的名字。
 
-Instead of presentational or cryptic names, always use ID and class names that reflect the purpose of the element in question, or that are otherwise generic.
+总是使用反应元素目的或通用的名字作为 ID 和 class 的名字，而不是凭第一感觉或者隐晦难解的名字。
 
 Names that are specific and reflect the purpose of the element should be preferred as these are most understandable and the least likely to change.
 
@@ -404,8 +403,10 @@ Using functional or generic names reduces the probability of unnecessary documen
 #### 3.1.3 ID 和 Class名字风格 ID and Class Name Style
 
 ID 和 class起名字尽可能短，但必须时要够长（含义表达清楚）。
-Try to convey what an ID or class is about while being as brief as possible.
 
+尽量传递出 ID 或 class 是干什么的，同时保持尽量简短。
+
+使用此种命名方式有助于提高代码的效率和理解性。
 Using ID and class names this way contributes to acceptable levels of understandability and code efficiency.
 
 ``` 	
