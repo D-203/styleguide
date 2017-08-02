@@ -93,13 +93,13 @@ STATUS_PAID
 * 一般以动词加名词的形式表达方法的职能
 * 避免信息冗余，如在UserDao中方法findById而不命名为findUserById
 * 方法命名约定（待讨论）
-* 获取单个对象load／get
-* 获取对象集合list／find／query
-* 插入对象save／insert
+* 获取单个对象load
+* 获取对象集合find
+* 插入对象save
 * 更新对象update
-* 删除对象remove／update
+* 删除对象remove
 * 统计对象count
-* 集合数值sum／avg
+* 聚合数值sum、avg
 
 <a name="constants-naming"></a>
 [1.5] **常量命名规范**
@@ -132,7 +132,8 @@ private String kName;
 <a name="source-naming"></a>
 [2.1] **源代码文件命名规范**
 * 与类命名规则相同
-* 与文件中共有类名相同
+* 与文件中公有类名相同
+* 一个类文件只能存在一个顶级的类定义
 
 <a name="encoding-guide"></a>
 [2.2] **源代码文件编码规范**
@@ -140,17 +141,18 @@ private String kName;
 
 <a name="special-chars"></a>
 [2.3] **特殊字符规范**
-* 源代码文件中的特殊字符如中文字符推荐使用Unicode格式书写并添加注释
+* 源代码中不能存在硬编码字符
+* 源代码文件中不能直接硬编码，所有提示信息等通过资源文件存储
 ```java
-// 正确
-private String chineseName = "\u02a3c\u00b2a"; //中文名为**
+// 错误
+private String chineseName = "中文名";
 ```
 
 <a name="structure-guide"></a>
 [2.4] **源代码文件结构规范**
 * 版权声明和许可条款说明
 * 包声明语句
-* 导入语句：先静态导入语句，后非静态导入语句
+* 导入语句：不允许静态导入语句
 * 公有类声明
 * 以上每部分之间以一个空行分隔
 
@@ -223,10 +225,13 @@ public void methodName
 
 <a name="var-init-guide"></a>
 [3.4] **变量的声明和初始化**
-* 声明同类型的多个变量用逗号隔开，逗号后面增加空格隔离
+* 每个变量定义单独一行
 ```java
-// 正确
+// 错误
 private int outerIndex = 0, innerIndex = 0;
+// 正确
+private int outerIndex = 0;
+private int innerIndex = 0;
 ```
 * 初始化long， float和double类型时使用L，F和D后缀
 ```java
@@ -245,7 +250,7 @@ private String cities[] = new String[] {
                                         };
 ```
 * 数组通过枚举法初始化时在同一行，过长时才进行换行
-* 多行变量声明之间不尽兴纵向对齐
+* 多行变量声明之间不纵向对齐
 ```java
 // 正确
 private Integer userAge;
@@ -278,6 +283,7 @@ private int     size;
 ## 注解规范
 * 注解跟着注释之后
 * 每个注解单独占一行，只有一个注解时也是
+* 注解跟在注释之后
 ```java
 // 正确
 @Override
